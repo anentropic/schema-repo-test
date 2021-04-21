@@ -1,0 +1,11 @@
+# important that the include files match settings from 'pyproject.toml'
+files: '/schemas/'
+repos:
+  - repo: local
+    hooks:
+      - id: jsonschema-tools-materialize-modified
+        name: jsonschema-tools
+        language: node
+        additional_dependencies: ['@wikimedia/jsonschema-tools@0.9.0']
+        entry: jsonschema-tools materialize-modified --staged
+        types: [json]
